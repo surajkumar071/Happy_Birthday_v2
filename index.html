@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=5"
+        name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
+
+    <!-- Update title and description for a birthday theme -->
+    <title>Happy Birthday | Suraj Nirala</title>
+    <link rel="icon" type="image/x-icon" href="https://www.palingit.com/favicon.ico" />
+    <meta name="description" content="A special birthday greeting" />
+</head>
+
+<body style="background: linear-gradient(to bottom, #ffe1e1, #ff217de0), url(./r.jpg);
+    height: 100vh;">
+    <audio src="lovemate.mp3" id="linkmp3" class="sembunyi"></audio>
+
+    <div id="bodyblur">
+        <!-- Wallpaper -->
+        <img src="" id="wallpaper" />
+    </div>
+
+    <div id="Content">
+        <div id="kadoIn">
+            <!-- Gift Button -->
+            <img src="Valentine.png" alt="Open Gift Button" />
+        </div>
+        <p id="ket">
+            <span style="font-style: italic; color: rgb(0,0,0); margin-top: 3px !important; ">💞Open The Gift,
+                SweetHeart💕</span>
+        </p>
+
+        <div class="kumpulanstiker" style="margin-top: 95px;">
+            <!-- Stickers for Content -->
+            <img src="https://media.tenor.com/4Ijycn6xFzUAAAAj/mochi-blue-roses.gif" id="fotostiker" />
+            <img src="https://feeldreams.github.io/bunga.gif" id="fotostiker1" />
+            <img src="https://feeldreams.github.io/pandacoklat.gif" id="fotostiker2" />
+            <img src="https://media.tenor.com/snFoLI-S9CQAAAAj/milk-and-mocha.gif" id="fotostiker3" />
+            <img src="https://feeldreams.github.io/emawh.gif" id="fotostiker4" />
+            <img src="https://feeldreams.github.io/pandacoklat.gif" id="fotostiker5" />
+        </div>
+
+        <p id="halo" class="halo"></p>
+
+        <div>
+            <blockquote id="bq" data-text="💞">
+                <!-- Update the messages for a birthday greeting -->
+                <p id="kalimat">
+                    🥰Happy Birthday, Baby! Today's all celebration only for you😘
+                </p>
+
+                <!-- Message -->
+                <p id="pesan1">Tap here for your birthday Surprise!💕</p>
+                <div id="kolombaru">
+                    <li id="lv1">💖</li>
+                    <li id="lv2">🥳</li>
+                    <li id="lv3">🎁</li>
+                    <li id="lv4">💝</li>
+                </div>
+
+                <p id="pesan2">You shine brighter every year! ✨</p>
+                <p id="pesan3">Do you know what makes special today? ❤️</p>
+                <p id="pesan4" class="sty2">It’s your birthday! 🎂</p>
+                <p id="pesan5" class="sty2">
+                    Today, I wish you a Happy Birthday filled with laughter, love, and unforgettable moments💞
+                </p>
+                <p id="pesan6" class="sty2">
+                    Remember, you deserve every happiness in the world. Celebrate big and enjoy every moment!💕
+                </p>
+
+                <!-- Next Button -->
+                <p id="opsL">💕Tap to continue the celebration!💕</p>
+            </blockquote>
+        </div>
+
+        <!-- Send Message Button -->
+        <div id="Tombol"><a id="By">&#128140; Next👉</a></div>
+
+        <!-- Rejected Message (if needed) -->
+        <div id="pesanditolak">
+            <img id="stikerditolak" src="https://feeldreams.github.io/weee.gif" />
+            <p id="kataditolak">
+                Oops! You can’t skip this birthday magic🔮🪄
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Main script remains similar; further changes are made in a.js if needed.
+        const body = document.querySelector("body");
+        const swalst = Swal.mixin({
+            timer: 2300,
+            allowOutsideClick: false,
+            showConfirmButton: false,
+            timerProgressBar: true,
+            imageHeight: 90,
+        });
+        audio = new Audio("" + linkmp3.src);
+        ftganti = 0;
+        fungsi = 0;
+        fungsiAwal = 0;
+        deffotostiker = fotostiker.src;
+        Content.style = "opacity:1;margin-top:16vh";
+        const swals = Swal.mixin({
+            allowOutsideClick: false,
+            cancelButtonColor: "#FF0040",
+            imageHeight: 80,
+        });
+
+        document.getElementById("kadoIn").onclick = function () {
+            if (fungsiAwal == 0) {
+                audio.play();
+                fungsiAwal = 1;
+                kadoIn.style =
+                    "transition:all .8s ease;transform:scale(10);opacity:0";
+                wallpaper.style = "transform: scale(1.5);";
+                ket.style = "display:none";
+                setTimeout(initengahan, 300);
+                setTimeout(inipesan, 500);
+            }
+        };
+
+        async function inipesan() {
+            var { value: nama } = await swals.fire({
+                title: "What's Your Beautiful Name💖",
+                input: "text",
+            });
+            if (nama && nama.length < 11) {
+                window.nama = nama;
+                vketikhalo = "Happy Birthday, " + nama + "!";
+                mulainama();
+            } else {
+                await Swal.fire({
+                    title: "Your name is lovely, but it seems a bit long.",
+                    text: "Please enter a shorter name.",
+                    icon: "warning",
+                });
+                inipesan();
+            }
+        }
+
+        var tanya = "How about we celebrate your birthday in style?";
+        var opstanya = "Your choice is:";
+        var tompositif = "Absolutely, let’s celebrate! 🎉";
+        var tomnegatif = "Maybe another time";
+
+        async function pertanyaan() {
+            var { isConfirmed: prtanya } = await swals.fire({
+                title: nama + ", " + tanya,
+                text: "" + opstanya,
+                imageUrl: "" + fotostiker5.src,
+                showCancelButton: true,
+                confirmButtonText: "" + tompositif,
+                cancelButtonText: "" + tomnegatif,
+            });
+            if (prtanya) {
+                pesanwhatsapp = "Yes " + nama + ", let the birthday magic begin!";
+                menuju();
+            } else {
+                pesanwhatsapp = nama + ", Don't miss out on the birthday fun!";
+                await swalst.fire({
+                    title: "" + kataditolak.innerHTML,
+                    timer: 2000,
+                    imageUrl: "" + stikerditolak.src,
+                });
+                menuju();
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
